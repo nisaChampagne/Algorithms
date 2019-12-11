@@ -1,10 +1,9 @@
 #!/usr/bin/python
 
 import sys
-
+cache = {1:1}
 def making_change(amount, denominations):
-  pass 
-
+  pass
 
 if __name__ == "__main__":
   # Test our your implementation from the command line
