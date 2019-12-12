@@ -21,25 +21,19 @@ import math
 
 
 def recipe_batches(recipe, ingredients):
-  recipe_dictionary = recipe
-  ingredient_dictionary = ingredients
 
   total = None
-  for key in recipe_dictionary.keys():
-    if key not in ingredient_dictionary:
-      return False
-    ##looking through keys associated with
-    ## ingredients and if the specific key isn't
-    ## in , return false
-    total_AmtBatches = ingredient_dictionary[key]//recipe_dictionary[key]
-    ##to get variable total_AmtBatches, you have to divide the individual ingredient key by the recipe key
-    if total_AmtBatches == 0:
-      return "No"
-    # get zero as a result, no batches
+
+  for key in recipe.keys():
+    if key not in ingredients:
+      return 0
+    batches = ingredients[key]//recipe[key]
+    if batches == 0:
+      return 0
     if not total:
-      total = total_AmtBatches
+      total = batches
     else:
-      total = min(total, total_AmtBatches)
+      total = min(total, batches)
   return total
 
 if __name__ == '__main__':
