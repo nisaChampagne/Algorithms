@@ -1,9 +1,28 @@
 #!/usr/bin/python
 
 import argparse
+#STEPS
+#1) function `find_max_profit` that receives as input a list of stock prices.
+
+#2) You must buy first before selling;
+
+#3) Your function should return the maximum profit
 
 def find_max_profit(prices):
-  pass
+
+  current_min_price_so_far = prices[0]
+  max_profit_so_far = prices[1]- current_min_price_so_far
+
+  for price in prices[1: len(prices)-1]:
+    if (price - current_min_price_so_far) > max_profit_so_far:
+            max_profit_so_far = price - current_min_price_so_far
+    if price < current_min_price_so_far:
+            current_min_price_so_far = price
+
+  return max_profit_so_far
+
+p = [1050, 270, 1540, 3800, 2]
+print(find_max_profit(p))
 
 
 if __name__ == '__main__':
